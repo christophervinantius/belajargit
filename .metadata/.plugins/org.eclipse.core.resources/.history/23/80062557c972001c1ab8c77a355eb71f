@@ -1,0 +1,23 @@
+package statistika;
+
+public class Mahasiswa {
+	int urutan;
+	int nilai;
+
+	public int getUrutan() {
+		return urutan;
+	}
+
+	public void setUrutan(int urutan) {
+		this.urutan = urutan;
+	}
+
+	public int getNilai() {
+		return nilai;
+	}
+
+	public void setNilai(int nilai) {
+		this.nilai = nilai;
+	}
+	
+}

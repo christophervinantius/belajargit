@@ -1,0 +1,48 @@
+package statistika;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main {
+
+	Scanner scan = new Scanner(System.in);
+	ArrayList<Mahasiswa> daftar = new ArrayList<>();
+	int jumlahSiswa;
+	int jumlahNilai;
+	double rataan;
+	
+	public Main() {
+		do{
+			System.out.print("Masukkan banyaknya siswa: ");
+			jumlahSiswa = scan.nextInt();
+			scan.nextLine();
+			if(jumlahSiswa < 10) {
+				System.out.println("Banyak siswa harus 10 atau lebih!");
+			}
+		}while(jumlahSiswa < 10);
+		int nilaiMahasiswa;
+		for(int i=0; i<jumlahSiswa; i++) {
+			Mahasiswa maba = new Mahasiswa();
+			do{
+				System.out.print("Masukkan nilai mahasiswa ke-" + i+1 + ": ");
+				nilaiMahasiswa = scan.nextInt();
+				scan.nextLine();
+			}while(nilaiMahasiswa < 1 || nilaiMahasiswa > 10);
+			maba.setUrutan(i+1);
+			maba.setNilai(nilaiMahasiswa);
+			daftar.add(maba);
+		}
+		for(int i=0; i<jumlahSiswa; i++) {
+			jumlahNilai += daftar.get(i+1).getNilai();
+		}
+		rataan = (double)jumlahNilai/jumlahSiswa;
+		System.out.println("Rata-rata: " + rataan);
+		scan.close();
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		new Main();
+	}
+
+}
